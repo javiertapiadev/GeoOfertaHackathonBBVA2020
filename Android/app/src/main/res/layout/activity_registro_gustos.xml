@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RegistroGustos">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cuentános ¿Qué te gusta?"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:padding="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/buttonligthblue"
+                android:layout_margin="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Autómoviles"
+                    android:textSize="30sp"
+                    android:padding="25dp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/robot"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:lottie_autoPlay="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="-40dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

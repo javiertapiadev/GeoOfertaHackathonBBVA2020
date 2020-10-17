@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -17,6 +19,8 @@ public class InicioSesion extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     float v;
+
+    private Button registrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +41,15 @@ public class InicioSesion extends AppCompatActivity {
         tabLayout.setTranslationY(300);
         tabLayout.setAlpha(v);
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
+
+        registrar = (Button) findViewById(R.id.buttonRegistro);
+
+        registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InicioSesion.this, RegistroGustos.class);
+                startActivity(intent);
+            }
+        });
     }
 }
