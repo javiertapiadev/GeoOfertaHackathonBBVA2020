@@ -25,16 +25,15 @@ public class Inicio extends AppCompatActivity implements Runnable {
         splashImg = findViewById(R.id.imagePrincipal);
         lottieAnimationView = findViewById(R.id.robot);
 
-        splashImg.animate().translationY(-1600).setDuration(1000).setStartDelay(4000);
-        logo.animate().translationY(1400).setDuration(1000).setStartDelay(4000).withEndAction(this);
-        lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
-
+        splashImg.animate().translationY(-2200).setDuration(800).setStartDelay(4000);
+        logo.animate().translationY(2000).setDuration(800).setStartDelay(4000).withEndAction(this);
+        lottieAnimationView.animate().translationY(2000).setDuration(800).setStartDelay(4000);
     }
-
 
     @Override
     public void run() {
         Intent intento = new Intent(this, InicioSesion.class);
         startActivity(intento);
     }
+
 }

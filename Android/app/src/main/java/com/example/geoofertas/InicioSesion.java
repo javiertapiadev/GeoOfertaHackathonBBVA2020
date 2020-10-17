@@ -16,6 +16,7 @@ public class InicioSesion extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    float v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +33,9 @@ public class InicioSesion extends AppCompatActivity {
         final LoginAdapter adapter = new LoginAdapter(getSupportFragmentManager(), this,tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setTranslationY(300);
+        tabLayout.setAlpha(v);
+        tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
     }
 }
