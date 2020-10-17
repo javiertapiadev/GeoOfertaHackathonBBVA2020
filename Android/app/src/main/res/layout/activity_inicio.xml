@@ -17,7 +17,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/imageninicio" />
+        app:srcCompat="@drawable/imageninicio"
+
+        />
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -42,5 +44,7 @@
         app:layout_constraintVertical_bias="0.45"
         app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/circulos" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
