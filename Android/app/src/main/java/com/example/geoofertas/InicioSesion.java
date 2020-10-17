@@ -42,14 +42,10 @@ public class InicioSesion extends AppCompatActivity {
         tabLayout.setAlpha(v);
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
 
-        registrar = (Button) findViewById(R.id.buttonRegistro);
+    }
 
-        registrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InicioSesion.this, RegistroGustos.class);
-                startActivity(intent);
-            }
-        });
+    public void CambiarActividadGustos(View view){
+        Intent intent = new Intent(this, RegistroGustos.class);
+        startActivity(intent);
     }
 }

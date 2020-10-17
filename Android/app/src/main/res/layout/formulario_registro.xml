@@ -97,7 +97,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repetircontrasenia"
         app:layout_constraintVertical_bias="0.112"
-        app:layout_constraintWidth_percent=".8" />
+        app:layout_constraintWidth_percent=".8"
+        android:onClick="CambiarActividadGustos"/>
 
     <Button
         android:id="@+id/buttonnosoycliente"
