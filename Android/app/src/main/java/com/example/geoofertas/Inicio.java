@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
-public class Inicio extends AppCompatActivity implements Animator.AnimatorListener {
+public class Inicio extends AppCompatActivity implements Runnable {
 
     ImageView logo, splashImg;
     LottieAnimationView lottieAnimationView;
@@ -26,29 +26,15 @@ public class Inicio extends AppCompatActivity implements Animator.AnimatorListen
         lottieAnimationView = findViewById(R.id.robot);
 
         splashImg.animate().translationY(-1600).setDuration(1000).setStartDelay(4000);
-        logo.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
+        logo.animate().translationY(1400).setDuration(1000).setStartDelay(4000).withEndAction(this);
         lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
 
-        splashImg.addAnimatorListener(this);
     }
 
-    @Override
-    public void onAnimationStart(Animator animation) {
-
-    }
 
     @Override
-    public void onAnimationEnd(Animator animation) {
+    public void run() {
         Intent intento = new Intent(this, InicioSesion.class);
         startActivity(intento);
     }
-
-    @Override
-    public void onAnimationCancel(Animator animation) {
-
-    }
-
-    @Override
-    public void onAnimationRepeat(Animator animation) {
-        
 }
