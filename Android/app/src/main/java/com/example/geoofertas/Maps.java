@@ -4,20 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.libraries.places.api.Places;
 
 import static com.example.geoofertas.util.Constants.MAPVIEW_BUNDLE_KEY;
 
-public class Maps extends AppCompatActivity implements OnMapReadyCallback {
+public class Maps extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
     private MapView mMapView;
+    private GoogleMap tempGoogleMap;
+    private LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +46,8 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
         mMapView = (MapView) findViewById(R.id.map);
         mMapView.onCreate(mapViewBlunde);
         mMapView.getMapAsync(this);
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
     }
 
     @Override
@@ -78,10 +94,12 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
                 != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
+            // googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Honda"));
             return;
         }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0, (float) 1.5, this);
+        tempGoogleMap = googleMap;
         googleMap.setMyLocationEnabled(true);
-        //googleMap.moveCamera();
     }
 
     @Override
@@ -100,5 +118,27 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback {
     public void onLowMemory() {
         super.onLowMemory();
         mMapView.onLowMemory();
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
+        tempGoogleMap.animateCamera(cameraUpdate);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+
     }
 }
