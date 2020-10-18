@@ -1,7 +1,10 @@
 package com.example.geoofertas;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.content.Context;
@@ -11,8 +14,11 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -27,34 +33,31 @@ import com.google.android.libraries.places.api.Places;
 
 import static com.example.geoofertas.util.Constants.MAPVIEW_BUNDLE_KEY;
 
-public class Maps extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
+public class Maps extends Fragment implements OnMapReadyCallback, LocationListener {
 
     private MapView mMapView;
     private GoogleMap tempGoogleMap;
     private LocationManager locationManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+    }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_maps, container, false);
         Bundle mapViewBlunde = null;
         if(savedInstanceState != null){
             mapViewBlunde = savedInstanceState.getBundle(MAPVIEW_BUNDLE_KEY);
         }
-
-        mMapView = (MapView) findViewById(R.id.map);
+        mMapView = view.findViewById(R.id.map);
         mMapView.onCreate(mapViewBlunde);
         mMapView.getMapAsync(this);
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.searchview, menu);
-        MenuItem menuItem = menu.findItem(R.id.searchIcon);
-        return super.onCreateOptionsMenu(menu);
+        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        return view;
     }
 
     @Override
@@ -90,9 +93,9 @@ public class Maps extends AppCompatActivity implements OnMapReadyCallback, Locat
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Honda"));
             return;

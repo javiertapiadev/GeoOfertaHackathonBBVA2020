@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mapa"
+        android:title="Mapa"
+        android:icon="@drawable/ic_mapa" />
+    <item
+        android:id="@+id/promociones"
+        android:title="Ofertas"
+        android:icon="@drawable/ic_ofertas"/>
+    <item
+        android:id="@+id/mispromociones"
+        android:title="Mis Ofertas"
+        android:icon="@drawable/ic_misofertas" />
+    <item
+        android:id="@+id/miperfil"
+        android:title="Mi Perfil"
+        android:icon="@drawable/ic_perfil" />
+</menu>

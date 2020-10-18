@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn_Mapa.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Maps.class);
+                Intent intent = new Intent(getApplicationContext(),MenuPrincipal.class);
                 startActivity(intent);
             }
         });

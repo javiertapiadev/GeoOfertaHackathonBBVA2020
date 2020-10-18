@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GeoOfertas</string>
+    <string name="app_name">Geo Ofertas</string>
     <string name="title_activity_maps_ofertas">Map</string>
     <string name="title_activity_maps">Maps</string>
     <!-- Strings used for fragments for navigation -->
