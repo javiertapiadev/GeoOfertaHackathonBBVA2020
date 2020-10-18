@@ -6,3 +6,4 @@ Para mas información consultar la Wiki dedicada del proyecto
 
 
 - Ruta: https://github.com/TapiaXavier/GeoOfertaHackathonBBVA2020/wiki
+- Aplicación descargable: https://github.com/TapiaXavier/GeoOfertaHackathonBBVA2020/releases/tag/v0.2-Prototipo
