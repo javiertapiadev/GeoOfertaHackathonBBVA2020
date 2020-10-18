@@ -32,6 +32,12 @@ public class MenuPrincipal extends AppCompatActivity {
                         case R.id.mapa:
                             fragment = new Maps();
                             break;
+                        case R.id.mispromociones:
+                            fragment = new MisOfertas();
+                            break;
+                        case R.id.promociones:
+                            fragment = new Fragment();
+                            break;
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();

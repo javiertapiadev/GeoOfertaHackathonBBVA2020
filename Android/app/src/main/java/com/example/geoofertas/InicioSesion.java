@@ -48,4 +48,9 @@ public class InicioSesion extends AppCompatActivity {
         Intent intent = new Intent(this, RegistroGustos.class);
         startActivity(intent);
     }
+
+    public void changeActivityMenu(View view){
+        Intent intent = new Intent(this, MenuPrincipal.class);
+        startActivity(intent);
+    }
 }
