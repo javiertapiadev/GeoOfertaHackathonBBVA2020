@@ -36,11 +36,13 @@ public class MenuPrincipal extends AppCompatActivity {
                             fragment = new MisOfertas();
                             break;
                         case R.id.promociones:
-                            fragment = new Fragment();
+                            fragment = new TodasLasOfertas();
                             break;
                     }
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+                    item.setChecked(true);
+                    if(fragment != null){
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+                    }
                     return false;
                 }
             };
