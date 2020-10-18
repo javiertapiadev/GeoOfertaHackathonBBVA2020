@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#072146</color>
+    <color name="colorPrimaryDark">#043263</color>
+    <color name="colorAccent">#49A5E6</color>
+    <color name="white">#ffffff</color>
+    <color name="bbvanavy">#072146</color>
+    <color name="bbvacoreblue">#004481</color>
+    <color name="bbvacoredarkblue">#043263</color>
+    <color name="bbvacorelightblue">#1464A5</color>
+    <color name="bbvamediumblue">#1973B8</color>
+    <color name="bbvamediumlightblue">#49A5E6</color>
+    <color name="bbvaskyblue">#5BBEFF</color>
+    <color name="bbvaskylightblue">#D4EDFC</color>
+    <color name="bbvaaqua">#2DCCCD</color>
+    <color name="bbvaaquadark">#028484</color>
+    <color name="bbvaaquamedium">#02A5A5</color>
+    <color name="bbvaaqualight">#5AC4C4</color>
+    <color name="bbvaaquawhite">#EAF9FA</color>
+    <color name="bbva200">#E9E9E9</color>
 </resources>
